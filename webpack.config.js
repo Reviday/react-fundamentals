@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 
 module.exports = { // 이 객체를 모듈로 내보냄
-    entry: './src/index.js', // 재귀적으로 모든 파일들을 require함.
+    entry: ['react-hot-loader/patch', './src/index.js'], // 재귀적으로 모든 파일들을 require함.
 
     output: { // 그렇게 합친 파일들을 public 아래  bundle.js라는 파일로 저장한다는 의미
         path: __dirname + '/public/',
@@ -17,15 +17,11 @@ module.exports = { // 이 객체를 모듈로 내보냄
     },
 
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
-                loader: 'babel',
+                loader: 'babel-loader',
                 exclude: /node_modules/,
-                query: {
-                    cacheDirectory: true,
-                    presets: ['es2015', 'react']
-                }
             }
         ]
     },
