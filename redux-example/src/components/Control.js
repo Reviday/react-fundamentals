@@ -8,13 +8,13 @@ const propTypes = {
 };
 
 function createWarning(funcName) {
-    return () => console.warn(funcName,'is not defined')
+    return () => console.warn(funcName,'is not defined');
 }
 
 const defaultProps = {
-    onPlus: () => createWarning('onPlus'),
-    onSubtract: () => createWarning('onSubtract'),
-    onRandomizeColor: () => createWarning('onRandomizeColor')
+    onPlus: createWarning('onPlus'),
+    onSubtract: createWarning('onSubtract'),
+    onRandomizeColor: createWarning('onRandomizeColor')
 };
 
 class Control extends Component { 
@@ -33,6 +33,6 @@ class Control extends Component {
 }
 
 Control.propTypes = propTypes;
-Control.defaultProps = defaultProps
+Control.defaultProps = defaultProps;
 
 export default Control;
