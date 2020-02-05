@@ -2,11 +2,15 @@ var express = require('express');
 var router = express();
 
 router.get('/:id', function(req, res) {
-    res.send('Received a GET request, param:' + req.params.id);
+    res.send('Received a GET request, param: ' + req.params.id);
 });
 
 router.post('/', function(req, res) {
-    res.json({ success: true })
+    console.log(JSON.stringify(req.body, null, 2));
+    res.json({ 
+        success: true,
+        user: req.body.username 
+    })
 });
 
 router.put('/', function(req, res) {
