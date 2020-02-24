@@ -1,19 +1,21 @@
 import React from "react";
-import { Link } from 'react-router';
+import { Link } from "react-router";
 
 class Header extends React.Component {
   render() {
     const loginButton = (
       <li>
         <a>
-          <i className="material-icons">vpn_key</i>
+          <Link to="/login">
+            <i className="material-icons">vpn_key</i>
+          </Link>
         </a>
       </li>
     );
 
     const logoutButton = (
       <li>
-        <a>
+        <a onClick={this.props.onLogout}>
           <i className="material-icons">lock_open</i>
         </a>
       </li>
