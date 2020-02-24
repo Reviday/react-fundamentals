@@ -63,3 +63,8 @@ if (process.env.NODE_ENV == "development") {
     console.log("webpack-dev-server is listening on port", devPort);
   });
 }
+
+/* support client-side routing */
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './../public/index.html'));
+});

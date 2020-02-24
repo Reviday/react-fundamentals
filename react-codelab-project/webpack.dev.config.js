@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
 
@@ -61,9 +62,13 @@ module.exports = {
                     presets: ['es2015', 'react']
                 })],
                 exclude: /node_modules/,
+            },
+            {
+                test: /\.css$/,
+                loader: 'style!css-loader'
             }
         ]
-    }
+    },
 
     /*
         최근 react-hot-loader 가 업데이트 되어서, 
@@ -86,5 +91,17 @@ module.exports = {
             ]
         },
     */
+
+    resolve: {
+            root: path.resolve('./src')
+    },
+
+    // webpack.dev.config.js
+    entry: [
+        './src/index.js',
+        'webpack-dev-server/client?http://0.0.0.0:4000',
+        'webpack/hot/only-dev-server',
+        './src/style.css'
+    ],
 
 }
